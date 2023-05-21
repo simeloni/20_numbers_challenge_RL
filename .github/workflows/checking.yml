@@ -27,6 +27,3 @@ jobs:
 
       - name: Run format
         run: make format
-
-jobs: 
-  python-tests
