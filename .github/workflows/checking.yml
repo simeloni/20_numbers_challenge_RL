@@ -1,28 +1,28 @@
-name: CI - Build and test
+name: CI - Test
 
 on:
   pull_request:
   workflow_dispatch:
 
 jobs:
-  test:
-    name: Run checks
+  format-code:
+    name: Code checking
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v2
         with:
-          python-version: '^3.7'
+          python-version: 3.x
 
       - name: Install Poetry
-        run: curl -sSL https://install.python-poetry.org | python3 -
+        run: pip install poetry
 
-      - name: Install dependencies
+      - name: Install project dependencies
         run: poetry install
 
-      - name: Run format
+      - name: Run make format
         run: make format
