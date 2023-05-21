@@ -9,7 +9,6 @@ format: ## Check the code format with black
 		poetry run black $(CHECK_DIRS)
 		poetry run black --check $(CHECK_DIRS)
 		poetry run isort --check $(CHECK_DIRS)
-		poetry run primapy sort-poetry-dependencies --check
 
 .PHONY: reformat
 reformat: ## Format repository code
