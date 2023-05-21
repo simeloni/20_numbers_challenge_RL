@@ -9,7 +9,7 @@ on: [pull_request, workflow_dispatch]
 jobs: 
   test:
     name: Run checks
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
       - name: Set uop Python
