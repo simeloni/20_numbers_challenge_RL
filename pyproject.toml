@@ -9,6 +9,7 @@ packages = [{include = "20_numbers_challenge_rl"}]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+black = "^23.3.0"
 
 
 [build-system]
