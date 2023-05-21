@@ -9,6 +9,7 @@ on: [pull_request, workflow_dispatch]
 jobs: 
   test:
     name: Run checks
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Set uop Python
