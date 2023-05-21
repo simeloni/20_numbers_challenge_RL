@@ -1,0 +1,34 @@
+name: CI - Test
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  format-code:
+    name: Code checking
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ^3.11
+
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Install project dependencies
+        run: poetry install
+
+      - name: Run make format
+        run: make format
+
+      - name: Run make type-check
+        run: make type-check
+
+      - name: Run make lint
+        run: make lint
