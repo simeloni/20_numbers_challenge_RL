@@ -1,0 +1,31 @@
+name: CI - Build and test
+
+defaults: 
+  run:
+    shell: bash
+
+on: [pull_request, workflow_dispatch]
+
+  test:
+    name: Run checks
+
+    steps:
+      - name: Set uop Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '^3.7'
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Install dependendencies
+        run: poetry install 
+
+      - name: Run format
+        run: make format
+
+jobs: 
+  python-tests
