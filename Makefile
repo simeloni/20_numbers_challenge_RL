@@ -6,7 +6,6 @@ check: format lint type-check test## Perform all the checks: format
 
 .PHONY: format
 format: ## Check the code format with black
-		poetry run black $(CHECK_DIRS)
 		poetry run black --check $(CHECK_DIRS)
 		poetry run isort --check $(CHECK_DIRS)
 
